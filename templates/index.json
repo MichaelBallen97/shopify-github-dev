@@ -1,16 +1,21 @@
 {
   "sections": {
-    "image_banner": {
-      "type": "image-banner",
+    "163026037538853362": {
+      "type": "featured-collection",
       "settings": {
-        "desktop_text_box_position": "flex-end",
-        "color_scheme": "background-1",
-        "stack_images_on_mobile": true,
-        "adapt_height_first_image": false
+        "title": "Featured collection",
+        "collection": "",
+        "products_to_show": 4,
+        "show_view_all": true,
+        "swipe_on_mobile": false,
+        "image_ratio": "adapt",
+        "show_secondary_image": false,
+        "add_image_padding": false,
+        "show_vendor": false
       }
     }
   },
   "order": [
-    "image_banner"
+    "163026037538853362"
   ]
 }
