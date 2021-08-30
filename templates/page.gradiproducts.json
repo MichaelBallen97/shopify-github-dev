@@ -1,12 +1,14 @@
 {
-    "sections": {
-      "main": {
-        "type": "productsgrid",
-        "settings": {
-        }
+  "sections": {
+    "main": {
+      "type": "productsgrid",
+      "settings": {
+        "collectiongradi": "gradiweb",
+        "cantidad_productos": 2
       }
-    },
-    "order": [
-      "main"
-    ]
+    }
+  },
+  "order": [
+    "main"
+  ]
 }
