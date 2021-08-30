@@ -12,6 +12,14 @@
     {% render 'product-card', show_vendor: section.settings.show_vendor %}
 {% endcomment %}
 
+<style>
+  .card-information__wrapper{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+</style>
+
 <div class="card-wrapper">
   <a href="{{ product_card_product.url | default: '#' }}" class="full-unstyled-link">
     <span class="visually-hidden">{{ product_card_product.title | escape }}</span>

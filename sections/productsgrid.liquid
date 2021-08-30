@@ -1,3 +1,104 @@
+<style>
+    .contenedor{
+        display: grid;
+        padding: 0 30px;
+        gap:10px;
+        {% if section.settings.cantidad_productos == 2%}
+        grid-template-columns: repeat(2, 1fr);
+        {% else %}
+        grid-template-columns: repeat(4, 1fr);    
+        {% endif %}
+    }
+    .contenedor_fotos{
+        list-style: none ;
+        display:contents;
+    }
+    .ocultar{
+        display:none;
+    }
+    .contenedor_fotos li:first-child{
+        display: block !important;
+    }
+    .grid__item{
+        padding:0;
+        width: 100%;
+        max-width: 100%!important;
+    }
+    .variants-gradiweb{
+        border:none;
+        display: flex;
+        justify-content: space-around;
+    }
+    .variant-gradiweb-label{
+        border: 1px solid;
+        display: inline-block;
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+    }
+</style>
+
+<div class="contenedor">
+    {%- for product in section.settings.collectiongradi.products limit: section.settings.cantidad_productos -%}
+        <div class="contenedor-producto">
+                <a href="{{ product.url }}">
+                    <ul class="contenedor_fotos">
+                        {%- for media in product.media -%}
+                            <li class="ocultar product__media-item grid__item slider__slide{% if media.media_type != 'image' %} product__media-item--full{% endif %}" data-media-id="{{ section.id }}-{{ media.id }}">
+                                {% render 'product-thumbnail2', media: media, position: forloop.index, loop: section.settings.enable_video_looping, modal_id: section.id %}
+                            </li>
+                        {%- endfor -%}
+                    </ul>
+                </a>
+            {% render 'product-card',
+                product_card_product: product
+            %}
+            {%- unless product.has_only_default_variant -%}
+                <variant-radios class="no-js-hidden" data-section="{{ section.id }}" data-url="{{ product.url }}">
+                    {%- for option in product.options_with_values -%}
+                        <fieldset class="js product-form__input variants-gradiweb">
+                            {%- for value in option.values -%}
+                                <label class="variant-gradiweb-label" style="background-image:url('{{value|escape|append:'.jpg'|strip|asset_url}}');">
+                                    <input class="ocultar" type="radio" id="{{ section.id }}-{{ option.name }}-{{ forloop.index0 }}"
+                                    name="{{ option.name }}"
+                                    value="{{ value | escape }}"
+                                    form="product-form-{{ section.id }}"
+                                    {% if option.selected_value == value %}checked{% endif %}
+                                    >
+                                </label>
+                            {%- endfor -%}
+                        </fieldset>
+                    {%- endfor -%}
+                        <script type="application/json">
+                            {{ product.variants | json }}
+                        </script>
+                </variant-radios>
+            {%- endunless -%}
+
+            <noscript>
+                <div class="product-form__input{% if product.has_only_default_variant %} hidden{% endif %}">
+                    <label class="form__label" for="Variants-{{ section.id }}">{{ 'products.product.product_variants' | t }}</label>
+                    <div class="select">
+                        <select name="id" id="Variants-{{ section.id }}" class="select__select" form="product-form">
+                            {%- for variant in product.variants -%}
+                                <option
+                                    {% if variant == product.selected_or_first_available_variant %}selected="selected"{% endif %}
+                                    {% if variant.available == false %}disabled{% endif %}
+                                    value="{{ variant.id }}">
+                                    {{ variant.title }}
+                                    {%- if variant.available == false %} - {{ 'products.product.sold_out' | t }}{% endif %}
+                                    - {{ variant.price | money | strip_html }}
+                                </option>
+                            {%- endfor -%}
+                        </select>
+                        {% render 'icon-caret' %}
+                    </div>
+                </div>
+            </noscript>
+        </div>
+    {%- endfor -%}
+</div>
+
 {% schema %}
 {
   "name": "productsgrid",
@@ -8,6 +109,15 @@
       "type": "collection",
       "id": "collectiongradi",
       "label": "Coleccion Gradiweb"
+    },
+    {
+      "type": "range",
+      "id": "cantidad_productos",
+      "min": 2,
+      "max": 10,
+      "step": 1,
+      "default": 4,
+      "label": "Cantidad de productos"
     }
   ],
   "presets": [
