@@ -103,6 +103,37 @@
 }
 
 /* Form Elements */
+.product-variant-gradiweb{
+  width: 40px;
+  height: 40px;
+}
+
+.agotado{
+  overflow: hidden;
+}
+
+.agotado::after{
+  content: "";
+  width: 40px;
+  display: block;
+  border: 1px solid;
+  transform: rotate(45deg);
+  margin-top: 17px;
+
+}
+
+.ocultar{
+  display:none;
+}
+
+.d-block{
+  display: block;
+}
+
+.warning p{
+  color: red;
+}
+
 .product-form__input {
   flex: 0 0 100%;
   padding: 0;
@@ -139,12 +170,12 @@ fieldset.product-form__input .form__label {
 
 .product-form__input input[type='radio'] + label {
   border: 0.1rem solid var(--color-foreground-55);
-  border-radius: 4rem;
+  border-radius: 50%;
   background-color: var(--color-background);
   color: var(--color-foreground);
   display: inline-block;
   margin: 0.7rem 0.5rem 0.2rem 0;
-  padding: 1rem 2rem;
+  padding: 0;
   font-size: 1.4rem;
   letter-spacing: 0.1rem;
   line-height: 1;
@@ -158,8 +189,7 @@ fieldset.product-form__input .form__label {
 }
 
 .product-form__input input[type='radio']:checked + label {
-  background-color: var(--color-foreground);
-  color: var(--color-background);
+  border: 5px double var(--color-button-background);
 }
 
 .product-form__input input[type='radio']:disabled + label {

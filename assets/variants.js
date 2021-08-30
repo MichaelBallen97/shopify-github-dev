@@ -130,4 +130,27 @@ class VariantRadios extends VariantSelects {
   }
 }
 
+function validar() {
+  let label = Array.from(document.getElementsByClassName('label-gradiweb'));
+  let warning2 = document.getElementById('warning');
+
+  label.forEach(element => {
+    element.addEventListener("click",()=>{
+      let validacion_data = element.getAttribute('data-available');
+      if (validacion_data =='false') {
+        warning2.classList.remove('ocultar');
+      }
+      else{
+        warning2.classList.add('ocultar');
+      }
+
+    })
+  });
+
+  
+}
+
+validar();
+
+
 customElements.define('variant-radios', VariantRadios);

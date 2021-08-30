@@ -139,7 +139,8 @@
       "vendor": "Vendor",
       "video_exit_message": "{{ title }} opens full screen video in same window.",
       "xr_button": "View in your space",
-      "xr_button_label": "View in your space, loads item in augmented reality window"
+      "xr_button_label": "View in your space, loads item in augmented reality window",
+      "warning": "This product is out stock"
     },
     "modal": {
       "label": "Media gallery"

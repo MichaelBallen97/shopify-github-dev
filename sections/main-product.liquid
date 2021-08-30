@@ -181,7 +181,6 @@
                 <variant-radios class="no-js-hidden" data-section="{{ section.id }}" data-url="{{ product.url }}">
                   {%- for option in product.options_with_values -%}
                       <fieldset class="js product-form__input">
-                        <legend class="form__label">{{ option.name }}</legend>
                         {%- for value in option.values -%}
                           <input type="radio" id="{{ section.id }}-{{ option.name }}-{{ forloop.index0 }}"
                                 name="{{ option.name }}"
@@ -189,11 +188,18 @@
                                 form="product-form-{{ section.id }}"
                                 {% if option.selected_value == value %}checked{% endif %}
                           >
-                          <label for="{{ section.id }}-{{ option.name }}-{{ forloop.index0 }}">
-                            {{ value }}
+                          <label for="{{ section.id }}-{{ option.name }}-{{ forloop.index0 }}" 
+                          class="product-variant-gradiweb {% if product.variants[forloop.index0].available ==false %}agotado{%endif%} label-gradiweb" 
+                          style="background-image:url('{{value|escape|append:'.jpg'|strip|asset_url}}');"
+                          data-available="{% if product.variants[forloop.index0].available ==false %}false{% else %}true{%endif%}"
+                          id="label-variant">
                           </label>
                         {%- endfor -%}
                       </fieldset>
+                      <div class="warning ocultar" id="warning">
+                        <p>El producto no tiene stock</p>
+                      </div>
+
                   {%- endfor -%}
                   <script type="application/json">
                     {{ product.variants | json }}
@@ -242,7 +248,7 @@
                         value="{{ variant.id }}"
                       >
                         {{ variant.title }}
-                        {%- if variant.available == false %} - {{ 'products.product.sold_out' | t }}{% endif %}
+                        {%- if variant.available == false %} - {{ 'products.product.sold_out' | t }} {% endif %}
                         - {{ variant.price | money | strip_html }}
                       </option>
                     {%- endfor -%}
