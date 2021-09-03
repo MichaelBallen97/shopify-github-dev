@@ -1,0 +1,28 @@
+.contador-contenedor{
+    width: 100%;
+    padding: 50px;
+}
+
+.banner{
+    width: 100%;
+    height: 100vh;
+    padding: 30px;
+    background:#445958;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.texto-banner{
+    text-align: center;
+    font-size: 3rem;
+    color: #fff;
+}
+
+.numero-contador{
+    background: #fff;
+    color: #445958;
+    padding: 0px 20px;
+    display: inline-block;
+    font-size: 4rem;
+}

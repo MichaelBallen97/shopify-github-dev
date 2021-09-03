@@ -71,10 +71,16 @@
       "type": "product-recommendations",
       "settings": {
       }
+    },
+    "product_slider":{
+      "type":"product_slider",
+      "settings":{
+      }
     }
   },
   "order": [
     "main",
+    "product_slider",
     "product-recommendations"
   ]
 }

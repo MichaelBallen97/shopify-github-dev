@@ -1,0 +1,39 @@
+.maincontainer{
+    width: 100%;
+    margin-top: 50px;
+    position: relative;
+}
+
+.slider-contenedor{
+    overflow: hidden;
+}
+
+.slide-product{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    align-items: center;
+    padding: 30px;
+}
+
+
+.arrows{
+    background-color: rgba(0,0,0,.6);
+    color: #fff;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    text-align: center;
+    cursor: pointer;
+}
+
+.nexts{
+    position: absolute;
+    right: 10px;
+    top: 50%;
+}
+
+.prevs{
+    position: absolute;
+    left: 10px;
+    top: 50%;
+}

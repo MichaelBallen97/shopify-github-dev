@@ -1,0 +1,27 @@
+<link rel="stylesheet" href="{{ 'section-contador.css' | asset_url }}" media="print" onload="this.media='all'">
+
+
+<div class="contador-contenedor">
+  <div class="banner">
+    <div class="texto-banner">
+      <p>Somos una tienda de alto impacto con más de <span class="numero-contador" id="span-ordenes"></span> órdenes entregadas</p>
+      
+      <p>y más de <span class="numero-contador" id="span-clientes"></span> clientes a nivel mundial.</p>
+    </div>
+  </div>
+
+</div>
+
+<script src="{{ 'contador.js' | asset_url }}" defer="defer"></script>
+
+{% schema %}
+{
+  "name": "Contador Ordenes",
+  "tag": "section",
+  "presets": [
+    {
+      "name": "Contador Ordenes"
+    }
+  ]
+}
+{% endschema %}

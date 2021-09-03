@@ -1,0 +1,52 @@
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/glider-js@1.7.7/glider.min.css">
+<link rel="stylesheet" href="{{ 'section-product-slide.css' | asset_url }}" media="print" onload="this.media='all'">
+
+
+<div class="maincontainer">
+    <div class="slider-contenedor">
+        {% for block in section.blocks %}
+            <div class="slide-product">
+                <div class="slide-product-text">
+                    <p>{{ block.settings.texto_slider }}</p>
+                </div>
+                <div class="slide-product-image">
+                    <img src="{{ block.settings.imagen_slider | img_url: '500x' }}" alt="">
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+    <div class="nexts arrows">&gt</div>
+    <div class="prevs arrows">&lt</div>
+</div>
+
+
+<script src="https://cdn.jsdelivr.net/npm/glider-js@1.7.7/glider.min.js"></script>
+<script src="{{ 'product-slide.js' | asset_url }}" defer="defer"></script>
+
+{% schema %}
+    {
+        "name":"product_slider",
+        "tag": "section",
+        "max_blocks": 5,
+        "blocks": [
+            {
+                "type": "slide",
+                "name": "Slide",
+                "settings": [
+                    {
+                        "type": "image_picker",
+                        "id": "imagen_slider",
+                        "label": "Imagen del Slider"
+                    },
+                    {
+                        "type": "richtext",
+                        "id": "texto_slider",
+                        "label": "Texto del Slider",
+                        "default": "<p>Aqui texto del Slider</p>"
+                    }
+                ]
+            }
+        ]
+        
+    }
+{% endschema %}
