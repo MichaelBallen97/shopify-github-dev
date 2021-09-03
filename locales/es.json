@@ -133,7 +133,8 @@
         "pick_up_unavailable_at_html": "Retiro no disponible actualmente en <span class=\"color-foreground\">{{ location_name }}<\/span>",
         "unavailable": "No se pudo cargar la disponibilidad de retiro",
         "refresh": "Actualizar"
-      }
+      },
+      "warning": "El porducto esta fuera de stock"
     },
     "modal": {
       "label": "Galería multimedia"
