@@ -124,7 +124,7 @@
       "video_exit_message": "{{ title }} abre el video en pantalla completa en la misma ventana.",
       "xr_button": "Ver en tu espacio",
       "xr_button_label": "Ver en tu espacio, carga el artículo en la ventana de realidad aumentada",
-      "warning": "El producto esta fuera de stock",
+      "warning": "El porducto esta fuera de stock",
       "pickup_availability": {
         "view_store_info": "Ver información de la tienda",
         "check_other_stores": "Verificar disponibilidad en otras tiendas",
@@ -133,8 +133,7 @@
         "pick_up_unavailable_at_html": "Retiro no disponible actualmente en <span class=\"color-foreground\">{{ location_name }}<\/span>",
         "unavailable": "No se pudo cargar la disponibilidad de retiro",
         "refresh": "Actualizar"
-      },
-      "warning": "El porducto esta fuera de stock"
+      }
     },
     "modal": {
       "label": "Galería multimedia"

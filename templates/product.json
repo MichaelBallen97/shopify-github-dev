@@ -72,9 +72,9 @@
       "settings": {
       }
     },
-    "product_slider":{
-      "type":"product_slider",
-      "settings":{
+    "product_slider": {
+      "type": "product_slider",
+      "settings": {
       }
     }
   },
