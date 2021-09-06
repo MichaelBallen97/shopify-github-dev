@@ -136,7 +136,8 @@
         "refresh": "Actualizar"
       },
       "media": {
-        "open_featured_media": "Abrir Imagen destacada desde vista de galeria"
+        "open_featured_media": "Abrir Imagen destacada desde vista de galeria",
+        "open_media": "Abrir imagen {{"
       }
     },
     "modal": {
