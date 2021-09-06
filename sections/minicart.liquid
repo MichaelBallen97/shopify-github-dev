@@ -1,0 +1,18 @@
+<link rel="stylesheet" href="{{ 'section-minicart.css' | asset_url }}" media="print" onload="this.media='all'">
+
+
+<div class="cart_container" id="cart_container">
+    <div class="cart_content">
+        <h2 class="main_tittle">CART</h2>
+        <div class="clear_button">
+            <a href="#" id="limpiar" class="limpiar">Delete all</a>
+        </div>
+        <div class="cart_products_grid" id="cart_products_grid">
+
+        </div>
+        <div class="checkout_button">
+            <h3 class="total">Total Amount: <span id="total"></span></h3>
+            <a href="/checkout" class="checkout">CHECKOUT</a>
+        </div>
+    </div>
+</div>
