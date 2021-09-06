@@ -138,7 +138,8 @@
       "media": {
         "open_featured_media": "Abrir Imagen destacada desde vista de galeria",
         "open_media": "Abrir imagen {{ index }} en vista de galeria",
-        "play_model": "Vista 3D"
+        "play_model": "Vista 3D",
+        "play_video": "Reproducir video"
       }
     },
     "modal": {
