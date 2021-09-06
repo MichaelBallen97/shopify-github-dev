@@ -72,7 +72,8 @@
     "next_slide": "Diapositiva a la derecha",
     "previous_slide": "Diapositiva a la izquierda",
     "loading": "Cargando...",
-    "of": "de"
+    "of": "de",
+    "skip_to_product_info": "Omitir informacion del producto"
   },
   "blogs": {
     "article": {
