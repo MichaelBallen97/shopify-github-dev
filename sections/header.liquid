@@ -400,7 +400,7 @@
         </a>
       {%- endif -%}
 
-      <a href="#" class="header__icon header__icon--cart link link--text focus-inset" id="cart-icon-bubble" onclick="mostrar_carrito()">
+      <a href="#" class="header__icon header__icon--cart link link--text focus-inset" id="cart-icon-bubble" onclick="showCart()">
         {%- liquid
           if cart == empty
             render 'icon-cart-empty'

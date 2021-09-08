@@ -9,6 +9,9 @@
         grid-template-columns: repeat(4, 1fr);    
         {% endif %}
     }
+    .contenedor-producto{
+        margin-top:50px;
+    }
     .contenedor_fotos{
         list-style: none ;
         display:contents;
@@ -27,7 +30,7 @@
     .variants-gradiweb{
         border:none;
         display: flex;
-        justify-content: space-around;
+        justify-content: center;
     }
     .variant-gradiweb-label{
         border: 1px solid;
@@ -35,6 +38,13 @@
         width: 30px;
         height: 30px;
         border-radius: 50%;
+        margin:10px;
+    }
+    .price dl{
+        margin: 0!important;
+    }
+    .variant-gradiweb-label:hover {
+        border: double 5px;
     }
 </style>
 
@@ -58,7 +68,7 @@
                     {%- for option in product.options_with_values -%}
                         <fieldset class="js product-form__input variants-gradiweb">
                             {%- for value in option.values -%}
-                                <label class="variant-gradiweb-label" style="background-image:url('{{value|escape|append:'.jpg'|strip|asset_url}}');">
+                                <label class="variant-gradiweb-label" style="background-image:url('{{value|escape|append:'.jpg'|strip|asset_url}}');" id="label_variant">
                                     <input class="ocultar" type="radio" id="{{ section.id }}-{{ option.name }}-{{ forloop.index0 }}"
                                     name="{{ option.name }}"
                                     value="{{ value | escape }}"

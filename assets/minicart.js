@@ -1,53 +1,9 @@
-var cart_container = document.getElementById('cart_container')
+let cart_container = document.getElementById('cart_container')
 cart_container.style.right = '-400px'
+boton_add = document.getElementById('boton_add')
 
 
-
-fetch('/cart.js')
-.then(respuesta => respuesta.json())
-.then(items => {
-    let array_items = items.items
-
-    if (array_items.length > 0){
-        array_items.forEach(element => {
-            
-            const contenedor_producto = document.createElement('div')
-            contenedor_producto.setAttribute('class','cart_product')
-            document.getElementById('cart_products_grid').appendChild(contenedor_producto)
-            const imagen_producto = document.createElement('img')
-            imagen_producto.setAttribute('src', element.image)
-            imagen_producto.setAttribute('class','cart_image')
-            contenedor_producto.appendChild(imagen_producto)
-            const titulo_producto = document.createElement('h3')
-            titulo_producto.setAttribute('class','cart_title')
-            titulo_producto.innerHTML = element.title
-            contenedor_producto.appendChild(titulo_producto)
-            const precio_producto = document.createElement('p')
-            precio_producto.setAttribute('class','cart_price')
-            precio_producto.innerHTML = element.quantity + ' x ' + element.price
-            contenedor_producto.appendChild(precio_producto)
-
-            /*document.getElementById('cart_products_grid').innerHTML = '<div class="cart_product"><img src="'+ product.image +'" alt="" class="cart_image"><h3 class="cart_title">'+ product.title +'</h3><p class="cart_price">'+ product.price +'</p></div>'*/
-
-        });
-    }
-    else{
-        document.getElementById('cart_products_grid').innerHTML = '<p>Cart is Empy</p>'
-    }
-    document.getElementById('total').innerHTML = items.total_price
-})
-
- const limpiar = document.getElementById('limpiar')
- limpiar.addEventListener("click", ()=>{
-    fetch('/cart/clear.js', {
-        method: 'POST'
-     })
-     .then(resp => resp.json())
-     .then(data => console.log(data))
- })
-
-
-function mostrar_carrito(){
+function showCart(){
     if(cart_container.style.right == '-400px'){
         cart_container.style.right = '0'
     }
@@ -55,3 +11,60 @@ function mostrar_carrito(){
         cart_container.style.right = '-400px'
     }
 }
+
+async function updateCart (){
+    const response = await fetch('/cart/update.js', {
+        method: 'POST',
+     });
+    const data = await response.json();
+    console.log("this is update");
+    console.log(data)
+    return data;
+}
+
+ async function getCart(){
+    const response = await fetch('/cart.js');
+    const data = await response.json();
+    return data;
+}
+
+function removeChilds(){
+    const productsGrid = document.getElementById('cart_products_grid');
+    while(productsGrid.firstChild){
+        productsGrid.removeChild(productsGrid.firstChild);
+    }
+}
+
+async function renderCart(){
+    data = await getCart();
+    dataUpdate = await updateCart();
+    console.log(data.items);
+    let array_items = data.items;
+    if (array_items.length > 0){
+        array_items.forEach(element => {            
+            document.getElementById('cart_products_grid').innerHTML += '<div class="cart_product"><img src="'+ element.image +'" alt="" class="cart_image"><h3 class="cart_title">'+ element.title +'</h3><p class="cart_price">' + element.quantity + ' X ' + element.price + ' </p></div>'
+        });
+    }
+    else{
+        document.getElementById('cart_products_grid').innerHTML = '<p>Cart is Empy</p>';
+    }
+    document.getElementById('total').innerHTML = data.total_price;
+}
+renderCart();
+
+
+
+boton_add.addEventListener("click", async ()=>{
+    removeChilds();
+    await updateCart();
+    await renderCart();
+    await showCart();
+})
+
+ const cleanCart = document.getElementById('clean');
+ cleanCart.addEventListener("click", async ()=>{
+    await fetch('/cart/clear.js', {
+        method: 'POST'
+     })
+    await renderCart();
+ })
