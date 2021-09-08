@@ -1,21 +1,12 @@
 {
   "sections": {
-    "163026037538853362": {
-      "type": "featured-collection",
+    "1630935422fe0ec109": {
+      "type": "contador",
       "settings": {
-        "title": "Featured collection",
-        "collection": "",
-        "products_to_show": 4,
-        "show_view_all": true,
-        "swipe_on_mobile": false,
-        "image_ratio": "adapt",
-        "show_secondary_image": false,
-        "add_image_padding": false,
-        "show_vendor": false
       }
     }
   },
   "order": [
-    "163026037538853362"
+    "1630935422fe0ec109"
   ]
 }

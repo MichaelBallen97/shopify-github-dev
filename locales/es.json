@@ -72,7 +72,8 @@
     "next_slide": "Diapositiva a la derecha",
     "previous_slide": "Diapositiva a la izquierda",
     "loading": "Cargando...",
-    "of": "de"
+    "of": "de",
+    "skip_to_product_info": "Omitir informacion del producto"
   },
   "blogs": {
     "article": {
@@ -133,6 +134,12 @@
         "pick_up_unavailable_at_html": "Retiro no disponible actualmente en <span class=\"color-foreground\">{{ location_name }}<\/span>",
         "unavailable": "No se pudo cargar la disponibilidad de retiro",
         "refresh": "Actualizar"
+      },
+      "media": {
+        "open_featured_media": "Abrir Imagen destacada desde vista de galeria",
+        "open_media": "Abrir imagen {{ index }} en vista de galeria",
+        "play_model": "Vista 3D",
+        "play_video": "Reproducir video"
       }
     },
     "modal": {

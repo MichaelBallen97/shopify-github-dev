@@ -30,6 +30,7 @@
         "variant_picker": {
           "type": "variant_picker",
           "settings": {
+            "picker_type": "button"
           }
         },
         "quantity_selector": {
@@ -40,6 +41,7 @@
         "buy_buttons": {
           "type": "buy_buttons",
           "settings": {
+            "show_dynamic_checkout": true
           }
         },
         "description": {
@@ -65,16 +67,51 @@
         "share"
       ],
       "settings": {
+        "enable_sticky_info": true,
+        "enable_video_looping": false
+      }
+    },
+    "product_slider": {
+      "type": "product_slider",
+      "blocks": {
+        "a8f5d108-601b-48d1-bb77-c0cde07b7bdc": {
+          "type": "slide",
+          "settings": {
+            "imagen_slider": "{{ product.metafields.my_fields.imagen.value }}",
+            "texto_slider": "<p>{{ product.metafields.my_fields.texto | metafield_tag }}<\/p>"
+          }
+        },
+        "adb7da4b-6350-4876-a831-13b06b444c76": {
+          "type": "slide",
+          "settings": {
+            "imagen_slider": "{{ product.metafields.my_fields.imagen2.value }}",
+            "texto_slider": "<p>{{ product.metafields.my_fields.texto2 | metafield_tag }}<\/p>"
+          }
+        },
+        "ae151925-e2da-4bb0-84bf-3ead1ee262ff": {
+          "type": "slide",
+          "settings": {
+            "imagen_slider": "{{ product.metafields.my_fields.imagen3.value }}",
+            "texto_slider": "<p>{{ product.metafields.my_fields.texto3 | metafield_tag }}<\/p>"
+          }
+        }
+      },
+      "block_order": [
+        "a8f5d108-601b-48d1-bb77-c0cde07b7bdc",
+        "adb7da4b-6350-4876-a831-13b06b444c76",
+        "ae151925-e2da-4bb0-84bf-3ead1ee262ff"
+      ],
+      "settings": {
       }
     },
     "product-recommendations": {
       "type": "product-recommendations",
       "settings": {
-      }
-    },
-    "product_slider": {
-      "type": "product_slider",
-      "settings": {
+        "heading": "You may also like",
+        "image_ratio": "adapt",
+        "show_secondary_image": false,
+        "add_image_padding": false,
+        "show_vendor": false
       }
     }
   },
